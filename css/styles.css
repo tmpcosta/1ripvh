@@ -510,3 +510,69 @@ footer {
     font-size: 24px;
     color: var(--white);
 }
+/* ========== HEADER FIXO E TRANSPARÊNCIA ========== */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+.sticky-header.scrolled {
+  background: rgba(255,255,255,1);
+}
+
+/* ========== LOGO DIMENSIONAMENTO E ESPAÇAMENTO ========== */
+.logo-brand {
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  max-height: 50px;
+  margin-right: 1rem;
+}
+
+/* ========== HERO COM BACKGROUND E OVERLAY ========== */
+.hero-bg {
+  position: relative;
+  padding: 120px 0;
+  text-align: center;
+  background: url('../images/hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-bg .container {
+  position: relative;
+  z-index: 1;
+}
+.hero-bg h1 {
+  font-size: 2.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+.hero-bg p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== BOTÃO PRINCIPAL ========== */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
