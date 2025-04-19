@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - 1º Ofício de Registro de Imóveis de Porto Velho</title>
+    <meta name="description" content="Entre em contato com o 1º Ofício de Registro de Imóveis de Porto Velho. Estamos à disposição para atender suas necessidades.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo do 1º Ofício de Registro de Imóveis de Porto Velho">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="circunscricao.html">Circunscrição</a></li>
+                    <li><a href="emolumentos.html">Emolumentos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section class="hero" style="padding: 60px 0;">
+            <div class="container">
+                <h1>Entre em Contato</h1>
+                <p>Estamos à disposição para atender suas necessidades e esclarecer suas dúvidas.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                    <!-- Informações de Contato -->
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 style="color: var(--primary-color); margin-bottom: 30px;">Informações de Contato</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Rua João Goulart, 3653, São João Bosco</p>
+                                <p>Porto Velho/RO, CEP 76.803-824</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Telefone/WhatsApp</h4>
+                                <p><a href="tel:+5569992423444" style="color: var(--text-color); text-decoration: none;">(69) 99242-3444</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>E-mail</h4>
+                                <p><a href="mailto:contato@1ripvh.com" style="color: var(--text-color); text-decoration: none;">contato@1ripvh.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda à Sexta: 9h-15h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4>Instagram</h4>
+                                <p><a href="https://www.instagram.com/cartoriopvh/" target="_blank" style="color: var(--text-color); text-decoration: none;">@cartoriopvh</a></p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <a href="https://wa.me/5569992423444" class="btn" target="_blank" style="background-color: #25d366;">
+                                <i class="fab fa-whatsapp"></i> Fale Conosco pelo WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulário de Contato -->
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 style="color: var(--primary-color); margin-bottom: 30px;">Envie uma Mensagem</h2>
+                        
+                        <form id="contactForm" class="contact-form" action="https://formsubmit.co/contato@1ripvh.com" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" name="subject" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+                            
+                            <!-- Campos ocultos para configuração do FormSubmit -->
+                            <input type="hidden" name="_next" value="https://1ripvh.com/obrigado.html">
+                            <input type="hidden" name="_subject" value="Nova mensagem do site - 1º Ofício de Registro de Imóveis">
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Mapa -->
+                <div style="margin-top: 60px;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 30px; text-align: center;">Nossa Localização</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.1137217937166!2d-63.90389492427508!3d-8.761963591571787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92325b6bea6b1d8d%3A0x84f6d2e269a4c6c1!2sR.%20Jo%C3%A3o%20Goulart%2C%203653%20-%20S%C3%A3o%20Jo%C3%A3o%20Bosco%2C%20Porto%20Velho%20-%20RO%2C%2076803-824!5e0!3m2!1spt-BR!2sbr!4v1713536347262!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">1º Ofício de Registro de Imóveis</h3>
+                <p>Rua João Goulart, 3653</p>
+                <p>São João Bosco, Porto Velho/RO</p>
+                <p>CEP 76.803-824</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> (69) 99242-3444</li>
+                    <li><i class="fas fa-envelope"></i> contato@1ripvh.com</li>
+                    <li><i class="fas fa-clock"></i> Segunda à Sexta: 9h-15h</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="circunscricao.html">Circunscrição</a></li>
+                    <li><a href="emolumentos.html">Emolumentos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/cartoriopvh/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5569992423444" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2025 1º Ofício de Registro de Imóveis de Porto Velho. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5569992423444" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
