@@ -13,6 +13,117 @@
         .text-justify {
             text-align: justify;
         }
+        
+        /* Estilos para os cards de serviços de registro */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background-color: var(--primary-light, #8a98aa);
+            padding: 30px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+        }
+        
+        .service-icon i {
+            font-size: 48px;
+            color: var(--white, #fff);
+        }
+        
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color, #6c7a8c);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-description {
+            font-size: 15px;
+            color: var(--gray-dark, #6c757d);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            text-align: justify;
+        }
+        
+        .service-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color, #6c7a8c);
+            color: var(--white, #fff);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .service-link:hover {
+            background-color: var(--primary-dark, #4e5a6a);
+        }
+        
+        .info-box {
+            background-color: var(--white, #fff);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-box-title {
+            font-size: 22px;
+            color: var(--primary-color, #6c7a8c);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-box-title i {
+            margin-right: 15px;
+            font-size: 24px;
+            color: var(--primary-color, #6c7a8c);
+        }
+        
+        .info-box-content {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,22 +181,130 @@
                         <h2 style="color: var(--primary-color); margin: 0;">Registro de Imóveis</h2>
                     </div>
                     
-                    <p class="text-justify">O registro de imóveis é o ato que transfere a propriedade do bem imóvel, garantindo segurança jurídica às transações imobiliárias. Realizamos o registro de diversos documentos, como:</p>
+                    <p class="text-justify">O registro é o ato que transfere a propriedade e demais direitos reais sobre o imóvel, garantindo segurança jurídica às transações imobiliárias. Realizamos o registro de diversos documentos, conforme detalhado abaixo:</p>
                     
-                    <ul style="list-style-type: none; padding-left: 0; margin: 20px 0;">
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Escrituras Públicas:</strong> Compra e venda, doação, permuta, dação em pagamento, entre outras.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Contratos Particulares:</strong> Com força de escritura pública, como os financiamentos habitacionais.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Formal de Partilha:</strong> Decorrente de inventário e partilha de bens.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Carta de Sentença:</strong> Resultante de processos judiciais.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Usucapião:</strong> Judicial ou extrajudicial.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Incorporação Imobiliária:</strong> Registro de empreendimentos imobiliários.</li>
-                        <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 10px;"></i> <strong>Loteamento:</strong> Registro de parcelamento do solo urbano ou rural.</li>
-                    </ul>
+                    <!-- Grid de cards de serviços -->
+                    <div class="services-grid">
+                        <!-- Card: Escritura Pública -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Escritura Pública</h3>
+                                <p class="service-description">
+                                    Documento lavrado em Tabelionato de Notas que formaliza a transferência de propriedade imobiliária entre vendedor e comprador.
+                                </p>
+                                <a href="requerimentos.html#escritura" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Contrato Particular -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Contrato Particular</h3>
+                                <p class="service-description">
+                                    Instrumento privado com força de escritura pública nos casos previstos em lei, como financiamentos habitacionais.
+                                </p>
+                                <a href="requerimentos.html#contrato" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Formal de Partilha -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Formal de Partilha</h3>
+                                <p class="service-description">
+                                    Documento judicial que formaliza a divisão de bens imóveis entre herdeiros em processos de inventário ou divórcio.
+                                </p>
+                                <a href="requerimentos.html#partilha" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Carta de Sentença -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Carta de Sentença</h3>
+                                <p class="service-description">
+                                    Documento judicial que determina o registro de imóvel em favor de determinada pessoa, após decisão definitiva.
+                                </p>
+                                <a href="requerimentos.html#sentenca" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Usucapião -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-hourglass-half"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Usucapião</h3>
+                                <p class="service-description">
+                                    Modo de aquisição da propriedade pela posse prolongada, podendo ser processado pela via judicial ou extrajudicial.
+                                </p>
+                                <a href="requerimentos.html#usucapiao" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Incorporação Imobiliária -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Incorporação Imobiliária</h3>
+                                <p class="service-description">
+                                    Registro que permite a comercialização de unidades autônomas em construção, garantindo direitos aos adquirentes.
+                                </p>
+                                <a href="requerimentos.html#incorporacao" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Parcelamento de Solo -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-th-large"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Parcelamento de Solo</h3>
+                                <p class="service-description">
+                                    Registro de loteamentos e desmembramentos, criando novas unidades imobiliárias a partir de uma área maior.
+                                </p>
+                                <a href="requerimentos.html#parcelamento" class="service-link">Saiba mais</a>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <p class="text-justify">Para realizar o registro de imóveis, é necessário apresentar a documentação completa, que varia conforme o tipo de transação. Nossa equipe está à disposição para orientar sobre os documentos necessários para cada caso específico.</p>
+                    <!-- Caixa de informações sobre documentação -->
+                    <div class="info-box">
+                        <h3 class="info-box-title">
+                            <i class="fas fa-info-circle"></i>
+                            Documentação Necessária
+                        </h3>
+                        <div class="info-box-content">
+                            <p class="text-justify">
+                                Para realizar o registro de imóveis, é necessário apresentar a documentação completa, que varia conforme o tipo de transação. Nossa equipe está à disposição para orientar sobre os documentos necessários para cada caso específico.
+                            </p>
+                            <p class="text-justify">
+                                Consulte nossa página de <a href="requerimentos.html">Requerimentos e Documentos Necessários</a> para obter informações detalhadas sobre a documentação exigida para cada tipo de registro.
+                            </p>
+                        </div>
+                    </div>
                     
-                    <div style="margin-top: 30px;">
-                        <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank" class="btn">Protocolar Documentos Online</a>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <a href="https://ridigital.org.br/eProtocolo/DefaultAC.aspx" target="_blank" class="btn" style="font-size: 18px; padding: 15px 30px;">
+                            <i class="fas fa-file-upload" style="margin-right: 10px;"></i>
+                            Protocolar Documentos Online
+                        </a>
                     </div>
                 </div>
                 
