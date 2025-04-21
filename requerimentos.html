@@ -112,45 +112,83 @@
             display: block;
         }
         
-        .checklist-card {
+        .documento-card {
             background-color: var(--white);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 25px;
             margin-bottom: 20px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
-        .checklist-card:hover {
+        .documento-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
-        .checklist-title {
+        .documento-header {
             color: var(--primary-color);
             margin: 0 0 20px 0;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--primary-color);
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
         
-        .checklist-title i {
+        .documento-title {
+            display: flex;
+            align-items: center;
+        }
+        
+        .documento-title i.icon {
             margin-right: 10px;
             font-size: 24px;
         }
         
-        .checklist-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
+        .toggle-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
         }
         
-        .checklist-item i {
-            color: var(--primary-color);
-            margin-right: 10px;
-            margin-top: 3px;
-            flex-shrink: 0;
+        .documento-content {
+            display: none;
+            padding-top: 15px;
+        }
+        
+        .documento-content.active {
+            display: block;
+        }
+        
+        .documento-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .documento-subitem {
+            margin-bottom: 10px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .documento-subsubitem {
+            margin-bottom: 8px;
+            padding-left: 60px;
+            position: relative;
+        }
+        
+        .documento-item-number {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .documento-item-letter {
+            margin-right: 5px;
+        }
+        
+        .documento-item-numeral {
+            margin-right: 5px;
         }
         
         @media (max-width: 768px) {
@@ -285,73 +323,446 @@
                     <!-- Aba de Documentos Necessários -->
                     <div id="documentos" class="tab-content">
                         <h3 style="color: var(--primary-color); margin-bottom: 20px;">Documentos Necessários</h3>
-                        <p>Confira a lista de documentos necessários para cada tipo de serviço. A apresentação da documentação completa agiliza o processo de registro.</p>
+                        <p>Confira a lista de documentos necessários para cada tipo de serviço. Clique em cada item para expandir e ver os detalhes. A apresentação da documentação completa agiliza o processo de registro.</p>
                         
-                        <div class="checklist-card">
-                            <h3 class="checklist-title"><i class="fas fa-home"></i> Compra e Venda SFH</h3>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Contrato do financiamento</span>
+                        <!-- Adjudicação -->
+                        <div class="documento-card" onclick="toggleDocumento('adjudicacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-gavel icon"></i>
+                                    <h3>1. Adjudicação</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="adjudicacao-icon"></i>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Procuração do(a) Credor(a) (cópia autenticada)</span>
-                            </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Comprovante de pagamento do ITBI</span>
-                            </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Declaração com firma reconhecida indicando que se trata de 1ª aquisição (caso queira o desconto de 50% da primeira morada)</span>
+                            <div class="documento-content" id="adjudicacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Carta de adjudicação expedida pela unidade judicial competente;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITBI;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Documentos pessoais de adjudicatário e cônjuge/companheiro, quando os dados não constarem integralmente da Carta judicial.</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="checklist-card">
-                            <h3 class="checklist-title"><i class="fas fa-exchange-alt"></i> Compra e Venda</h3>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Escritura pública de compra e venda</span>
+                        <!-- Arrematação -->
+                        <div class="documento-card" onclick="toggleDocumento('arrematacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-hammer icon"></i>
+                                    <h3>2. Arrematação</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="arrematacao-icon"></i>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Certidão de ônus atualizada (validade de 30 dias)</span>
-                            </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Comprovante de pagamento do ITBI</span>
-                            </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Documentos pessoais dos compradores e vendedores (RG e CPF)</span>
-                            </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Certidão de estado civil atualizada (se casado, apresentar certidão de casamento)</span>
+                            <div class="documento-content" id="arrematacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Carta de arrematação expedida pela unidade judicial competente;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Auto de arrematação devidamente assinado;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITBI;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Documentos pessoais de adjudicatário e cônjuge/companheiro, quando os dados não constarem integralmente da Carta judicial.</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="checklist-card">
-                            <h3 class="checklist-title"><i class="fas fa-gift"></i> Doação</h3>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Escritura pública de doação</span>
+                        <!-- Cédulas de crédito -->
+                        <div class="documento-card" onclick="toggleDocumento('cedulas')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-file-invoice-dollar icon"></i>
+                                    <h3>3. Cédulas de crédito com garantia imobiliária ou pignoratícia especial</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="cedulas-icon"></i>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Certidão de ônus atualizada (validade de 30 dias)</span>
+                            <div class="documento-content" id="cedulas-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Duas vias devidamente assinadas do instrumento de crédito (uma delas ficará arquivada no Cartório);</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Se o emitente for pessoa jurídica, devem ser apresentados os documentos que comprovem o poder de representação (ex.: procurações, atos constitutivos e certidões da Junta Comercial).</span>
+                                </div>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Comprovante de pagamento do ITCD</span>
+                        </div>
+                        
+                        <!-- Compra e venda -->
+                        <div class="documento-card" onclick="toggleDocumento('compravenda')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-exchange-alt icon"></i>
+                                    <h3>4. Compra e venda</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="compravenda-icon"></i>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Documentos pessoais dos doadores e donatários (RG e CPF)</span>
+                            <div class="documento-content" id="compravenda-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública ou contrato particular de compra e venda;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITBI;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Se for apresentado contrato particular em que um dos sujeitos seja pessoa jurídica, devem ser apresentados os documentos que comprovem o poder de representação (ex.: procurações, atos constitutivos e certidões da Junta Comercial) e devem ser apresentados documentos pessoais das partes;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Se for contrato realizado no âmbito do SFH, deve ser apresentada declaração pelo adquirente nos termos do art. 290 da Lei de Registros Públicos, manifestando se é (ou não) sua primeira aquisição de imóvel residencial no âmbito do SFH.</span>
+                                </div>
                             </div>
-                            <div class="checklist-item">
-                                <i class="far fa-square"></i>
-                                <span>Certidão de estado civil atualizada</span>
+                        </div>
+                        
+                        <!-- Compromisso de compra e venda -->
+                        <div class="documento-card" onclick="toggleDocumento('compromisso')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-handshake icon"></i>
+                                    <h3>5. Compromisso de compra e venda</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="compromisso-icon"></i>
+                            </div>
+                            <div class="documento-content" id="compromisso-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública ou contrato de compromisso de compra e venda;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Se for apresentado instrumento particular, devem ser juntados os documentos completos de qualificação dos contratantes (nome, RG, CPF, profissão, estado civil, endereço, que deve também incluir de cônjuges ou companheiros).</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contrato de locação -->
+                        <div class="documento-card" onclick="toggleDocumento('locacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-key icon"></i>
+                                    <h3>6. Contrato de locação – Cláusula de vigência</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="locacao-icon"></i>
+                            </div>
+                            <div class="documento-content" id="locacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Requerimento, com firma reconhecida, especificando o ato a ser praticado;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Contrato de locação em via original (com as firmas reconhecidas – partes e testemunhas);</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Documentos de identificação das partes (cópia autenticada): RG, CPF e Certidão de Nascimento ou Casamento atualizadas, expedidas há menos de 90 dias;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Se o alguma das partes for pessoa jurídica, devem ser apresentados os documentos que comprovem o poder de representação (ex.: procurações, atos constitutivos e certidões da Junta Comercial).</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dação em pagamento - Permuta -->
+                        <div class="documento-card" onclick="toggleDocumento('dacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-sync-alt icon"></i>
+                                    <h3>7. Dação em pagamento – Permuta</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="dacao-icon"></i>
+                            </div>
+                            <div class="documento-content" id="dacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública ou contrato particular de dação em pagamento ou permuta;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITBI;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Se for apresentado contrato particular, devem ser juntados documentos de identificação das partes (cópia autenticada): RG, CPF e Certidão de Nascimento ou Casamento atualizadas, expedidas há menos de 90 dias;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Se o alguma das partes for pessoa jurídica, devem ser apresentados os documentos que comprovem o poder de representação (ex.: procurações, atos constitutivos e certidões da Junta Comercial.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Doação -->
+                        <div class="documento-card" onclick="toggleDocumento('doacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-gift icon"></i>
+                                    <h3>8. Doação</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="doacao-icon"></i>
+                            </div>
+                            <div class="documento-content" id="doacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública ou contrato particular de doação;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITCMD;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Se for apresentado contrato particular, devem ser juntados documentos de identificação das partes (cópia autenticada): RG, CPF e Certidão de Nascimento ou Casamento atualizadas, expedidas há menos de 90 dias.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Inventário e partilha/adjudicação -->
+                        <div class="documento-card" onclick="toggleDocumento('inventario')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-scroll icon"></i>
+                                    <h3>9. Inventário e partilha/adjudicação</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="inventario-icon"></i>
+                            </div>
+                            <div class="documento-content" id="inventario-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública de inventário ou formal de partilha devidamente instruído e assinado;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação de ITCMD (Causa Mortis);</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Guia de declaração e comprovante de quitação ITBI/ITCMD no caso de cessão de direitos hereditários;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Via original ou cópia autenticada da certidão de óbito.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Partilha em divórcio ou dissolução de união estável -->
+                        <div class="documento-card" onclick="toggleDocumento('partilha')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-heart-broken icon"></i>
+                                    <h3>10. Partilha em divórcio ou dissolução de união estável</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="partilha-icon"></i>
+                            </div>
+                            <div class="documento-content" id="partilha-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Escritura pública de divórcio/dissolução de união estável ou formal de partilha devidamente instruído e assinado;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Guia de declaração e comprovante de quitação ITBI/ITCMD no caso de partilha desigual ou cessões/transmissões realizadas;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Via original ou cópia autenticada da certidão de casamento com divórcio averbado.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Incorporação Imobiliária -->
+                        <div class="documento-card" onclick="toggleDocumento('incorporacao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-building icon"></i>
+                                    <h3>11. Incorporação Imobiliária</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="incorporacao-icon"></i>
+                            </div>
+                            <div class="documento-content" id="incorporacao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Requerimento solicitando o registro da incorporação, com firma reconhecida e acompanhado de prova de representação, se for o caso;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Título de propriedade de terreno, ou de promessa, irrevogável e irretratável, de compra e venda ou de cessão de direitos ou de permuta do qual conste cláusula de imissão na posse do imóvel, não haja estipulações impeditivas de sua alienação em frações ideais e inclua consentimento para demolição e construção, devidamente registrado;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Certidões negativas de impostos federais, estaduais e municipais, de protesto de títulos de ações cíveis e criminais e de ônus reais relativamente ao imóvel, aos alienantes do terreno e ao incorporador;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Histórico dos títulos de propriedade do imóvel, abrangendo os últimos 20 anos, acompanhado de certidão dos respectivos registros;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">e.</span>
+                                    <span>Projeto de construção devidamente aprovado pelas autoridades competentes;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">f.</span>
+                                    <span>Cálculo das áreas das edificações, discriminando, além da global, a das partes comuns, e indicando, para cada tipo de unidade a respectiva metragem de área construída;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">g.</span>
+                                    <span>Memorial descritivo das especificações da obra projetada;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">h.</span>
+                                    <span>Avaliação do custo global da obra, atualizada à data do arquivamento, calculada com base nos custos unitários, discriminando-se, também, o custo de construção de cada unidade, devidamente assinada pelo profissional responsável pela obra;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">i.</span>
+                                    <span>Instrumento de divisão do terreno em frações ideais autônomas que contenham a sua discriminação e a descrição, a caracterização e a destinação das futuras unidades e partes comuns que a elas acederão;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">j.</span>
+                                    <span>Minuta de convenção de condomínio que disciplinará o uso das futuras unidades e partes comuns do conjunto imobiliário;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">k.</span>
+                                    <span>Declaração em que se defina a parcela do preço de que trata o inciso II, do art. 39, da Lei 4.591/64;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">l.</span>
+                                    <span>Certidão do instrumento público de mandato, referido no § 1º do artigo 31, da Lei 4.591/64, se for o caso;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">m.</span>
+                                    <span>Declaração expressa em que se fixe, se houver, o prazo de carência;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">n.</span>
+                                    <span>Declaração, acompanhada de plantas elucidativas, sobre o número de veículos que a garagem comporta e os locais destinados à guarda destes;</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Transferência de imóvel à sociedade -->
+                        <div class="documento-card" onclick="toggleDocumento('transferencia')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-briefcase icon"></i>
+                                    <h3>12. Transferência de imóvel à sociedade – Integralização de capital social</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="transferencia-icon"></i>
+                            </div>
+                            <div class="documento-content" id="transferencia-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Requerimento assinado pelo interessado, com firma reconhecida;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Contrato social devidamente registrado na Junta Comercial;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Certidão Simplificada da Junta Comercial atualizada (expedida há menos de 30 dias);</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>ITBI quitado ou Certidão de Isenção/imunidade/não incidência de ITBI expedida pela Prefeitura Municipal;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">e.</span>
+                                    <span>Cópia autenticada dos documentos pessoais dos transmitentes (RG, CPF, certidão de nascimento ou casamento).</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Usucapião Extrajudicial -->
+                        <div class="documento-card" onclick="toggleDocumento('usucapiao')">
+                            <div class="documento-header">
+                                <div class="documento-title">
+                                    <i class="fas fa-hourglass-half icon"></i>
+                                    <h3>13. Usucapião Extrajudicial</h3>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon" id="usucapiao-icon"></i>
+                            </div>
+                            <div class="documento-content" id="usucapiao-content">
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">a.</span>
+                                    <span>Requerimento de reconhecimento extrajudicial de usucapião, formulado pelo interessado, representado por advogado ou Defensor Público, que atenderá, no que couber, aos requisitos da petição inicial, estabelecidos pelo art. 319 do Código de Processo Civil (CPC), bem como indicará:</span>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">i.</span>
+                                        <span>a modalidade de usucapião requerida e sua base legal ou constitucional;</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">ii.</span>
+                                        <span>a origem e as características da posse, a existência de edificação, de benfeitoria ou de qualquer acessão no imóvel usucapiendo, com a referência às respectivas datas de ocorrência;</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">iii.</span>
+                                        <span>o nome e estado civil de todos os possuidores anteriores cujo tempo de posse foi somado ao do requerente para completar o período aquisitivo;</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">iv.</span>
+                                        <span>o número da matrícula ou a transcrição da área em que se encontra inserido o imóvel usucapiendo ou a informação de que não se encontra matriculado ou transcrito; e</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">v.</span>
+                                        <span>o valor atribuído ao imóvel usucapiendo;</span>
+                                    </div>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">b.</span>
+                                    <span>Ata notarial devidamente lavrada por Tabelião de Notas competente;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">c.</span>
+                                    <span>Planta e memorial descritivo assinados por profissional legalmente habilitado e com prova da Anotação da Responsabilidade Técnica (ART) ou do Registro de Responsabilidade Técnica (RTT) no respectivo conselho de fiscalização profissional e pelos titulares dos direitos registrados ou averbados na matrícula do imóvel usucapiendo ou na matrícula dos imóveis confinantes ou pelos ocupantes a qualquer título;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">d.</span>
+                                    <span>Justo título ou quaisquer outros documentos que demonstrem a origem, a continuidade, a cadeia possessória e o tempo de posse;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">e.</span>
+                                    <span>Certidões negativas dos distribuidores da Justiça Estadual e da Justiça Federal do local da situação do imóvel usucapiendo expedidas nos últimos 30 dias, demonstrando a inexistência de ações que caracterizem oposição à posse do imóvel, em nome das seguintes pessoas:</span>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">i.</span>
+                                        <span>do requerente e respectivo cônjuge ou companheiro, se houver;</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">ii.</span>
+                                        <span>do proprietário do imóvel usucapiendo e respectivo cônjuge ou companheiro, se houver;</span>
+                                    </div>
+                                    <div class="documento-subsubitem">
+                                        <span class="documento-item-numeral">iii.</span>
+                                        <span>de todos os demais possuidores e respectivos cônjuges ou companheiros, se houver, em caso de sucessão de posse, que é somada a do requerente para completar o período aquisitivo da usucapião;</span>
+                                    </div>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">f.</span>
+                                    <span>Instrumento de mandato, público ou particular, com poderes especiais, outorgado ao advogado pelo requerente e por seu cônjuge ou companheiro;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">g.</span>
+                                    <span>Certidão dos órgãos municipais e/ou federais que demonstre a natureza urbana ou rural do imóvel usucapiendo;</span>
+                                </div>
+                                <div class="documento-subitem">
+                                    <span class="documento-item-letter">h.</span>
+                                    <span>Documentos e declarações que comprovem o preenchimento dos requisitos específicos, conforme a modalidade de usucapião pretendida.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -448,6 +859,23 @@
             // Mostra o conteúdo da aba atual e adiciona a classe "active" ao botão
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
+        }
+        
+        // Função para expandir/recolher os documentos
+        function toggleDocumento(id) {
+            var content = document.getElementById(id + "-content");
+            var icon = document.getElementById(id + "-icon");
+            
+            if (content.classList.contains("active")) {
+                content.classList.remove("active");
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.classList.add("active");
+                icon.style.transform = "rotate(180deg)";
+            }
+            
+            // Impedir que o evento de clique se propague para elementos pai
+            event.stopPropagation();
         }
     </script>
 </body>
