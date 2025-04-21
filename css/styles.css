@@ -88,6 +88,31 @@ nav ul li a:hover {
     color: var(--white);
     padding: 100px 0;
     text-align: center;
+    position: relative;
+}
+
+/* Hero com imagem das caixas d'água em parallax */
+.hero-img {
+    position: relative;
+    background: url('../images/webp/caixas-webp.webp') center/cover no-repeat;
+    background-attachment: fixed;
+    filter: grayscale(100%) contrast(1.2);
+    padding: 120px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(10, 43, 70, 0.75), rgba(10, 43, 70, 0.25));
+    z-index: 1;
+}
+
+.hero-img .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -362,6 +387,11 @@ footer {
     .section {
         padding: 60px 0;
     }
+    
+    .hero-img {
+        background-attachment: scroll;
+        background-position: center 40%;
+    }
 }
 
 /* Tabela de Emolumentos */
@@ -510,6 +540,7 @@ footer {
     font-size: 24px;
     color: var(--white);
 }
+
 /* ========== HEADER FIXO E TRANSPARÊNCIA ========== */
 .sticky-header {
   position: sticky;
@@ -575,4 +606,63 @@ footer {
 .btn-primary:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Seção Sobre com imagem das caixas d'água */
+.sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.sobre-foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.sobre-foto figcaption {
+    font-size: .875rem;
+    color: var(--gray-dark);
+    margin-top: 8px;
+    text-align: center;
+}
+
+@media(max-width:768px) {
+    .sobre {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Rodapé com miniatura das caixas d'água */
+.footer-history {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer-history-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.footer-history-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-history-text {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Preload para imagem das caixas d'água */
+.preload-caixas {
+    display: none;
 }
